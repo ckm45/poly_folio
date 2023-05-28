@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hana Library</title>
     <!-- Title -->
     <title>Portfolio - Case Study | Space - Multipurpose Responsive Template</title>
 
@@ -62,7 +62,27 @@
         </div>
     </header>
 
-    <style>
+    <script>
+    function showDatePicker() {
+        var datePicker = document.createElement("input");
+        datePicker.type = "date";
+        datePicker.id = "datePicker";
+        datePicker.style.display = "none";
+        datePicker.addEventListener("change", function () {
+            var selectedDate = this.value;
+            document.getElementById("inputAddress2").value = selectedDate;
+            document.body.removeChild(datePicker);
+        });
+
+        document.body.appendChild(datePicker);
+        datePicker.click();
+    }
+
+    document.getElementById("inputAddress2").addEventListener("click", function () {
+        showDatePicker();
+    });
+</script>
+<style>
     body {
         display: flex;
         flex-direction: column;
@@ -113,6 +133,7 @@
     }
 </style>
 
+
 <div class="main">
     <form class="row g-3">
         <div class="col-md-6">
@@ -129,7 +150,7 @@
         </div>
         <div class="col-12">
             <label for="inputAddress2" class="form-label">Birthday</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="생년월일을 입력해주세요">
+            <input type="date" class="form-control" id="inputAddress2" placeholder="생년월일을 입력해주세요">
         </div>
         <div class="col-md-6">
             <label for="inputCity" class="form-label">PhoneNumber</label>
@@ -156,10 +177,9 @@
             </div>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary" onclick="signup()">
-                <a href="index.html" class="no-link" style="color: inherit;">가입하기</a>
+            <button type="button" class="btn btn-primary" onclick="signup()">
+                가입하기
             </button>
-
         </div>
     </form>
 </div>

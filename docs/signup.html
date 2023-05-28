@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Title -->
+    <title>Portfolio - Case Study | Space - Multipurpose Responsive Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/hs-mega-menu.min.css">
+
+    <!-- CSS Space Template -->
+    <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+    <style>
+        /* 스타일 변경 */
+        .no-link {
+            text-decoration: none;
+            color: black;
+            cursor: default;
+        }
+
+        /* 활성 링크 스타일 유지 */
+        .no-link:hover,
+        .no-link:active {
+            color: inherit;
+            cursor: default;
+        }
+
+        header>div {
+            display: flex;
+            justify-content: center;
+            /* 가로 중앙 정렬 */
+            align-items: center;
+            /* 세로 중앙 정렬 */
+        }
+    </style>
+
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a class="no-link" href="index.html"><img src="./img/hanalogo1.png"></a>
+        </div>
+        <div>
+            <h2>
+                하나 도서관
+            </h2>
+        </div>
+    </header>
+
+    <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .main {
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .row>input {
+        font-size: 20px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .col-md-6 {
+        flex-grow: 1;
+    }
+
+    .form-label {
+        margin-bottom: 10px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+
+<div class="main">
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Password</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="비밀번호 확인">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress2" class="form-label">Birthday</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="생년월일을 입력해주세요">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">PhoneNumber</label>
+            <input type="text" class="form-control" id="inputCity" placeholder="전화번호를 입력해주세요">
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Gender</label>
+            <select id="inputState" class="form-select">
+                <option selected>Choose</option>
+                <option value="male">남자</option>
+                <option value="female">여자</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="inputZip" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputZip" placeholder="주소를 입력해주세요.">
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    가입에 동의합니다.
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary" onclick="signup()">
+                <a href="index.html" class="no-link" style="color: inherit;">가입하기</a>
+            </button>
+
+        </div>
+    </form>
+</div>
+    <br><br><br><br><br>
+    <footer>
+        <style>
+    footer {
+        width: 100%;
+        padding: 30px 0;
+        padding-bottom: 0;
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+    }
+
+    .bg-primary-dark {
+        width: 100%;
+    }
+</style>
+
+
+<!-- ========== FOOTER ========== -->
+<div class="bg-primary-dark border-top border-white-10">
+    <div class="container">
+        <div class="row content-space-1">
+            <div class="col-lg-3 mb-7 mb-lg-0">
+                <!-- Logo -->
+                <div class="mb-5">
+                    <a class="navbar-brand" href="./index.html" aria-label="Space">
+                        <img class="navbar-brand-logo" src="./img/hanalogo2.png" alt="Image Description">
+                    </a>
+                </div>
+                <!-- End Logo -->
+
+                <span class="d-block">
+                    <label class="form-label text-white">하나 도서관</label>
+                </span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm mb-7 mb-sm-0">
+                <span class="text-cap text-primary-light">Home</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="index.html">Home</a></li>
+                    <li><a class="link-sm link-light" href="index.html">Main</a></li>
+                    <li><a class="link-sm link-light" href="index.html">HomePage</a></li>
+                    <li><a class="link-sm link-light" href="index.html">MainPage</a></li>
+                    <li><a class="link-sm link-light" href="index.html">홈화면</a></li>
+                    <li><a class="link-sm link-light" href="index.html">메인화면</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm mb-7 mb-sm-0">
+                <span class="text-cap text-primary-light">회원관리</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="#">Belonging <i class="bi-box-arrow-up-right ms-1"></i></a>
+                    </li>
+                    <li><a class="link-sm link-light" href="#">Company</a></li>
+                    <li><a class="link-sm link-light" href="#">Careers <span
+                                class="badge bg-warning text-dark rounded-pill ms-2">We're hiring</span></a></li>
+                    <li><a class="link-sm link-light" href="#">Contacts</a></li>
+                    <li><a class="link-sm link-light" href="#">Security</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm">
+                <span class="text-cap text-primary-light">도서관리</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="booklist.html">도서</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">책</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">책목록</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">BookList</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">Book</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm">
+                <span class="text-cap text-primary-light">대출관리</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-5">
+                    <li><a class="link-sm link-light" href="#">Terms of use</a></li>
+                    <li><a class="link-sm link-light" href="#">Privacy policy <i
+                                class="bi-box-arrow-up-right ms-1"></i></a></li>
+                </ul>
+                <!-- End List -->
+
+                <span class="text-cap text-primary-light">Docs</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="#">Documentation</a></li>
+                    <li><a class="link-sm link-light" href="#">Snippets</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <div class="border-top border-white-10"></div>
+
+        <div class="row align-items-md-end py-5">
+            <div class="col-md mb-3 mb-md-0">
+                <p class="text-white mb-0">© Space. 2023 Htmlstream. All rights reserved.</p>
+            </div>
+
+            <div class="col-md d-md-flex justify-content-md-end">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ========== END FOOTER ========== -->;
+    </footer>
+</body>
+
+</html>

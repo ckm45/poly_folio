@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Title -->
+    <title>Portfolio - Case Study | Space - Multipurpose Responsive Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/hs-mega-menu.min.css">
+
+    <!-- CSS Space Template -->
+    <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+    <style>
+        /* 스타일 변경 */
+        .no-link {
+            text-decoration: none;
+            color: black;
+            cursor: default;
+        }
+
+        /* 활성 링크 스타일 유지 */
+        .no-link:hover,
+        .no-link:active {
+            color: inherit;
+            cursor: default;
+        }
+
+        header>div {
+            display: flex;
+            justify-content: center;
+            /* 가로 중앙 정렬 */
+            align-items: center;
+            /* 세로 중앙 정렬 */
+        }
+    </style>
+
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a class="no-link" href="index.html"><img src="./img/hanalogo1.png"></a>
+        </div>
+        <div>
+            <h2>
+                하나 도서관
+            </h2>
+        </div>
+    </header>
+
+    {{content}}
+    <br><br><br><br><br>
+    <footer>
+        {%include footer.html%};
+    </footer>
+</body>
+
+</html>

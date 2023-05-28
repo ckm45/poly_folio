@@ -1,12 +1,317 @@
 ---
-layout: base
+layout : layout-top
 ---
 
-    <div>
-        폴리텍에 오신 것을 환영합니다. 
+
+<style>
+    .form-select {
+        width: 200px;
+        margin-left: 50px;
+    }
+
+    div>div>img {
+        max-width: 200px;
+        height: 300px;
+        margin-right: 50px
+    }
+
+    .block {
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10%;
+        margin-left: 50%;
+        margin-bottom: 450px;
+        align-items: center;
+        /* 추가 */
+        justify-content: center;
+        /* 추가 */
+    }
+
+    .form-inline {
+        display: flex;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .form-inline>.form-select {
+        margin-right: 20px;
+    }
+
+    .form-inline>.form-control {
+        width: 70%;
+        margin-right: 1%;
+    }
+
+    .side-bar {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+
+    }
+
+    .main {
+        display: flex;
+    }
+
+    .search-title {
+        font-size: 25px;
+        text-shadow: 2px 2px 3px rgb(0, 0, 0, 0.2);
+    }
+
+    button {
+        background-color: green;
+        color: white;
+    }
+
+    .star {
+        background-color: antiquewhite;
+    }
+
+    .wrap-map {
+        margin: 0 auto;
+    }
+</style>
+
+<br>
+<hr>
+<div>
+    <form class="form-inline">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>검색 유형</option>
+            <option value="1">회원 검색</option>
+            <option value="2">도서 검색</option>
+        </select>
+        <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="검색">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+    </form>
+
+</div>
+
+<br>
+<br>
+<div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
     </div>
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
-      </div>
+    <div class="container text-center">
+        <div class="search-title">
+            <베스트셀러>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                    <div class="col">
+                        <img src="img/bestbook1.png" class="img-fluid" alt="베스트셀러">
+
+                        <div class="p-3">세이노의 가르침</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook2.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">흔한 남매 13</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook3.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">사장학개론</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook4.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">챗GPT, 질문이 돈이 되는 세상</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook5.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">모성</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                    <div class="col">
+                        <img src="img/bestbook6.png" class="img-fluid" alt="베스트셀러">
+
+                        <div class="p-3">Git 교과서</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook7.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">모든 삶은 흐른다</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook8.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">우정 도둑</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook9.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">돌연한 출발</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook10.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">아주 세속적인 지혜</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<hr>
+
+<div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carouse2">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="container text-center">
+        <div class="search-title">
+            <신간 도서>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                    <div class="col">
+                        <img src="img/bestbook6.png" class="img-fluid" alt="베스트셀러">
+
+                        <div class="p-3">Git 교과서</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook7.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">모든 삶은 흐른다</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook8.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">우정 도둑</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook9.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">돌연한 출발</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook10.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">아주 세속적인 지혜</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                    <div class="col">
+                        <img src="img/bestbook1.png" class="img-fluid" alt="베스트셀러">
+
+                        <div class="p-3">세이노의 가르침</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook2.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">흔한 남매 13</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook3.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">사장학개론</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook4.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">챗GPT, 질문이 돈이 되는 세상</div>
+                    </div>
+                    <div class="col">
+                        <img src="img/bestbook5.png" class="img-fluid" alt="베스트셀러">
+                        <div class="p-3">모성</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<br><br><br>
+<div class="container text-center">
+    <div class="row align-items-md-center">
+        <div class="col-md-6 order-md-2 mb-5 mb-md-0">
+                <div class="position-relative">
+                    <!-- * 카카오맵 - 지도퍼가기 -->
+                    <!-- 1. 지도 노드 -->
+                    <div id="daumRoughmapContainer1685013852810" class="root_daum_roughmap root_daum_roughmap_landing">
+                    </div>
+
+                    <!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+                    <script charset="UTF-8" class="daum_roughmap_loader_script"
+                        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+                    <!-- 3. 실행 스크립트 -->
+                    <script charset="UTF-8">
+                        new daum.roughmap.Lander({
+                            "timestamp": "1685013852810",
+                            "key": "2ewyk",
+                            "mapWidth": "640",
+                            "mapHeight": "360"
+                        }).render();
+                    </script>
+                    <div class="position-absolute bottom-0 start-0 p-5">
+                        <!-- Fancybox -->
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <span class="btn btn-icon btn-white text-primary">
+                                    <i class="bi-play-circle-fill"></i>
+                                </span>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <span class="text-white">Watch Andrea’s story</span>
+                            </div>
+                        </div>
+                        <!-- End Fancybox -->
+                    </div>
+                </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+            <div class="pe-md-5">
+                <span class="text-cap" style="font-size: 25px">찾아오시는 길</span>
+                <h3>지식의 성지, 문화의 바다!</h3>
+
+                <!-- Blockquote -->
+                <figure class="mb-7">
+                    <blockquote class="blockquote blockquote-sm">“ 다양한 장르와 주제의 책들로 가득한 도서관에서 새로운 지식과 즐거운 독서 경험을 만끽하세요.
+                        하나 도서관은 독서 문화의 중심지로, 편안하고 아늑한 분위기에서 다양한 독서 행사와 작가 강연, 클럽 활동 등을 진행하고 있습니다. 지식을 키우는 즐거움을 함께하세요! “
+                    </blockquote>
+
+                    <figcaption class="blockquote-footer">
+                        Andrea
+                        <span class="blockquote-footer-source">Director of Sales | MailChimp</span>
+                    </figcaption>
+                </figure>
+                <!-- End Blockquote -->
+            </div>
+        </div>
+        <!-- End Col -->
+    </div>
+</div>

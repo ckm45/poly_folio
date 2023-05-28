@@ -1,0 +1,74 @@
+---
+layout : layout-login
+---
+<style>
+    .main {
+
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    label {
+        align-items: left;
+        /* 세로 중앙 정렬 */
+        text-align: left;
+        /* 가운데 정렬 */
+        font-size: 25px;
+
+    }
+
+    input {
+        border: 3px solid black;
+        height: 50px;
+        width: 300px;
+        font-size: 25px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .row>input {
+        font-size: 20px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<div class="main">
+    <form class="row g-3">
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">ID</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="아이디를 입력해주세요">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress2" class="form-label">Password</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="비밀번호를 입력해주세요">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary" onclick="login()">
+                <a href="index.html" class="no-link" style="color: inherit;">로그인</a>
+            </button>
+
+        </div>
+    </form>
+</div>

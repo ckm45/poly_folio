@@ -48,6 +48,38 @@
 
     <script src="login.js"></script>
     <script src="signup.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let passwd = document.querySelector("#inputPassword");
+            let passwdck = document.querySelector("#inputPassword2");
+
+            let message = document.createElement("p"); // 새로운 <p> 요소 생성
+            message.style.color = "green"; // 문구 색상 설정 (예: 녹색)
+            message.style.fontWeight = "bold"; // 문구 굵게 설정 (예: bold)
+
+            passwd.addEventListener("input", function () {
+                if (passwd.value === passwdck.value) {
+                    message.textContent = "비밀번호가 일치합니다."; // 문구 설정
+                } else {
+                    message.textContent = "비밀번호가 일치하지 않습니다."; // 일치하지 않을 때는 빈 문구로 설정
+                }
+            });
+
+            passwdck.addEventListener("input", function () {
+                if (passwd.value === passwdck.value) {
+                    message.textContent = "비밀번호가 일치합니다."; // 문구 설정
+                } else {
+                    message.textContent = "비밀번호가 일치하지 않습니다."; // 일치하지 않을 때는 빈 문구로 설정
+                }
+            });
+
+            // 문구를 해당 위치에 추가
+            document.querySelector("#passwordContainer").appendChild(message);
+        });
+
+
+    </script>
+
 </head>
 
 <body>
@@ -65,7 +97,7 @@
     {{content}}
     <br><br><br><br><br>
     <footer>
-        {%include footer.html%};
+        {% include footer.html %};
     </footer>
 </body>
 

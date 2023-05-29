@@ -1,8 +1,65 @@
 ---
 layout : layout-login
 ---
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        //패스워드 체크
+        let passwd = document.querySelector("#inputPassword");
+        let passwdck = document.querySelector("#inputPassword2");
+
+        let message = document.createElement("p");
+        message.style.color = "green";
+        message.style.fontWeight = "bold";
+
+        passwdck.addEventListener("input", function () {
+            if (passwd.value === passwdck.value) {
+                message.textContent = "비밀번호가 일치합니다.";
+            } else {
+                message.textContent = "비밀번호가 일치하지 않습니다.";
+            }
+        });
+
+        //핸드폰 번호 형식
+        let phoneNumberInput = document.querySelector("#inputPhoneNumber");
+
+        phoneNumberInput.addEventListener("focus", function () {
+            formatPhoneNumberInput(this);
+        });
+
+        phoneNumberInput.addEventListener("input", function () {
+            formatPhoneNumberInput(this);
+        });
+
+        function formatPhoneNumberInput(input) {
+            let phoneNumber = input.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+            let formattedPhoneNumber = formatPhoneNumber(phoneNumber);
+            input.value = formattedPhoneNumber;
+        }
+
+        function formatPhoneNumber(phoneNumber) {
+            let formattedNumber = phoneNumber;
+            if (phoneNumber.length > 3) {
+                formattedNumber = phoneNumber.replace(/(\d{3})(\d)/, "$1-$2");
+            }
+            if (phoneNumber.length > 7) {
+                formattedNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{0,4}).*/, "$1-$2-$3");
+            }
+            return formattedNumber;
+        }
 
 
+
+
+        //회원가입 버튼
+        let signupButton = document.getElementById("signupButton");
+        if (signupButton) {
+            signupButton.addEventListener("click", function () {
+                signup();
+            });
+        }
+    });
+
+</script>
 <script>
     function showDatePicker() {
         var datePicker = document.createElement("input");
@@ -11,7 +68,7 @@ layout : layout-login
         datePicker.style.display = "none";
         datePicker.addEventListener("change", function () {
             var selectedDate = this.value;
-            document.getElementById("inputAddress2").value = selectedDate;
+            document.getElementById("inputBirthday").value = selectedDate;
             document.body.removeChild(datePicker);
         });
 
@@ -19,7 +76,7 @@ layout : layout-login
         datePicker.click();
     }
 
-    document.getElementById("inputAddress2").addEventListener("click", function () {
+    document.getElementById("inputBirthday").addEventListener("click", function () {
         showDatePicker();
     });
 </script>
@@ -85,13 +142,13 @@ layout : layout-login
             <label for="inputPassword" class="form-label">Password</label>
             <input type="password" class="form-control" id="inputPassword">
         </div>
-        <div class="col-12">
+        <div class="col-12" id="passwordContainer">
             <label for="inputPassword4" class="form-label">Password</label>
-            <input type="text" class="form-control" id="inputPassword4" placeholder="비밀번호 확인">
+            <input type="text" class="form-control" id="inputPassword2" placeholder="비밀번호 확인">
         </div>
         <div class="col-12">
             <label for="inputBirthday" class="form-label">Birthday</label>
-            <input type="date" class="form-control" id="inputAddress2" placeholder="생년월일을 입력해주세요">
+            <input type="date" class="form-control" id="inputBirthday" placeholder="생년월일을 입력해주세요">
         </div>
         <div class="col-md-6">
             <label for="inputPhoneNumber" class="form-label">PhoneNumber</label>
@@ -118,7 +175,7 @@ layout : layout-login
             </div>
         </div>
         <div class="col-12">
-            <button type="button" class="btn btn-primary" onclick="signup()">
+            <button type="button" class="btn btn-primary" id="signupButton">
                 가입하기
             </button>
         </div>

@@ -147,8 +147,22 @@
         let signupButton = document.getElementById("signupButton");
         if (signupButton) {
             signupButton.addEventListener("click", function () {
-                signup();
+                if (document.getElementById("gridCheck").checked) {
+                    signup(); // 체크박스가 선택되어 있을 경우 회원가입 절차를 진행합니다.
+                } else {
+                    showMessage("회원가입을 위해서는 약관에 동의해야 합니다."); // 체크박스가 선택되지 않은 경우 다른 메시지를 표시합니다.
+                }
             });
+        }
+
+        function showMessage(message) {
+            // 메시지를 페이지에 표시합니다.
+            let messageContainer = document.createElement("p");
+            messageContainer.textContent = message;
+            messageContainer.style.color = "red";
+            messageContainer.style.fontWeight = "bold";
+            let form = document.querySelector(".main form");
+            form.appendChild(messageContainer);
         }
     });
 

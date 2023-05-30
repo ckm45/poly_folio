@@ -99,152 +99,98 @@
     </div>
     </header>
 
-    <style>
-    .form-select {
-        width: 200px;
-        margin-left: 50px;
-    }
+    <!-- JS Global Compulsory  -->
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
 
-    div>div>img {
-        max-width: 200px;
-        height: 300px;
-        margin-right: 50px
-    }
+<!-- JS Implementing Plugins -->
+<script src="./assets/js/hs-mega-menu.min.js"></script>
+<script src="./assets/js/hs-show-animation.min.js"></script>
+<script src="./assets/js/hs-go-to.min.js"></script>
+<script src="./assets/js/swiper-bundle.min.js"></script>
+<script src="./assets/js/index.js"></script>
+<script src="./assets/js/hs-sticky-block.min.js"></script>
+<script src="./assets/js/shuffle.js"></script>
 
-    .block {
-        border: 3px solid black;
-        border-radius: 10px;
-        padding: 10%;
-        margin-left: 50%;
-        margin-bottom: 450px;
-        align-items: center;
-        /* 추가 */
-        justify-content: center;
-        /* 추가 */
-    }
-
-    .form-inline {
-        display: flex;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
-    .form-inline>.form-select {
-        margin-right: 20px;
-    }
-
-    .form-inline>.form-control {
-        width: 70%;
-        margin-right: 1%;
-    }
-
-    .side-bar {
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
+<!-- JS Space -->
+<script src="./assets/js/theme.min.js"></script>
 
 
-    }
 
-    .main {
-        display: flex;
-    }
 
-    .search-title {
-        font-size: 25px;
-        text-shadow: 2px 2px 3px rgb(0, 0, 0, 0.2);
-    }
 
-    button {
-        background-color: green;
-        color: white;
-    }
 
-    .star {
-        background-color: antiquewhite;
-    }
+<!-- Portfolio - Grid -->
+<div id="sorting-container" class="container content-space-1 content-space-md-3">
+    <!-- Heading -->
+    <h3 class="mb-7">도서 목록</h3>
+    <!-- End Heading -->
 
-    .wrap-map {
-        margin: 0 auto;
-    }
-</style>
+    <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <div class="navbar-expand-md">
+                <!-- Navbar Toggle -->
+                <div class="d-grid">
+                    <button type="button" class="navbar-toggler btn btn-white mb-3" data-bs-toggle="collapse"
+                        data-bs-target="#navbarVerticalNavMenu" aria-label="Toggle navigation" aria-expanded="false"
+                        aria-controls="navbarVerticalNavMenu">
+                        <span class="d-flex justify-content-between align-items-center">
+                            <span class="h6 mb-0">Filter nav menu</span>
 
-<br>
-<hr>
-<div>
-    <form class="form-inline">
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>검색 유형</option>
-            <option value="1">회원 검색</option>
-            <option value="2">도서 검색</option>
-        </select>
-        <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="검색">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-    </form>
+                            <span class="navbar-toggler-default">
+                                <i class="bi-list"></i>
+                            </span>
 
+                            <span class="navbar-toggler-toggled">
+                                <i class="bi-x"></i>
+                            </span>
+                        </span>
+                    </button>
+                </div>
+                <!-- End Navbar Toggle -->
+
+                <!-- Navbar Collapse -->
+                <div id="navbarVerticalNavMenu" class="collapse navbar-collapse" style="">
+                    <div class="js-sticky-block" data-hs-sticky-block-options="{
+                       &quot;parentSelector&quot;: &quot;#navbarVerticalNavMenu&quot;,
+                       &quot;targetSelector&quot;: &quot;#header&quot;,
+                       &quot;breakpoint&quot;: &quot;md&quot;,
+                       &quot;startPoint&quot;: &quot;#navbarVerticalNavMenu&quot;,
+                       &quot;endPoint&quot;: &quot;#stickyBlockEndPoint&quot;,
+                       &quot;stickyOffsetTop&quot;: 20
+                     }" style="position: fixed; ">
+                        <ul id="navbarSettings"
+                            class="js-filter-options nav nav-link-gray nav-vertical nav-tabs nav-lg mb-5"
+                            role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" href="javascript:;" data-group="all">All</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="javascript:;" data-group="branding">BestSeller</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="javascript:;" data-group="development">New</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="javascript:;" data-group="product-design">Recommend</a>
+                            </li>
+                        </ul>
+
+                        <a class="link" href="booklist.html">Hana Library</a>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </div>
+        <!-- End Col -->
+        <div class="col-md-8">
+
+        </div>
+        <!-- End Col -->
+    </div>
+    <!-- End Row -->
 </div>
+<!-- End Portfolio - Grid -->
 
-<br>
-<br>
-<div id="carouselExampleIndicators1" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-    </div>
-    <div class="container text-center">
-        <div class="search-title">
-            베스트셀러 도서
-        </div>
-        <div class="carousel-inner">
-            <!-- Carousel items will be dynamically generated -->
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-
-<div id="carouselExampleIndicators2" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-    </div>
-    <div class="container text-center">
-        <div class="search-title">
-            신간 도서
-        </div>
-        <div class="carousel-inner">
-            <!-- Carousel items will be dynamically generated -->
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
 
 <script>
     function getHttpRequest(url, callback) {
@@ -267,248 +213,195 @@
         request.send();
     }
 
+
     const url1 = "./bestbooklist.json";
     getHttpRequest(url1, function (response) {
         var json = JSON.parse(response);
-
-        let carouselInner = document.querySelector("#carouselExampleIndicators1 .carousel-inner");
-
         let startIndex = 0;
 
-        let carouselItem = document.createElement('div');
-        carouselItem.classList.add("carousel-item");
-        carouselItem.classList.add("active");
+        // 부모 요소를 선택합니다.
+        let parentDiv = document.querySelector("col-md-8");
 
-        let row = document.createElement('div');
-        row.classList.add("row");
-        row.classList.add("row-cols-2");
-        row.classList.add("row-cols-lg-5");
-        row.classList.add("g-2");
-        row.classList.add("g-lg-3");
+        // Shuffle Div 생성
+        let shuffleDiv = document.createElement('div');
+        shuffleDiv.classList.add('js-shuffle', 'row', 'row-cols-1', 'row-cols-md-2');
 
+
+        // 반복문을 통해 데이터 배열을 순회합니다.
         for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
-            let col = document.createElement('div');
-            col.classList.add("col");
 
-            let img = document.createElement('img');
-            img.src = json[j].image;
-            img.classList.add("img-fluid");
-            img.alt = "베스트셀러";
-            col.appendChild(img);
+            // Shuffle Item Div 생성
+            let shuffleItemDiv = document.createElement('div');
+            shuffleItemDiv.classList.add('js-shuffle-item', 'col-sm-6', 'mb-5');
+            shuffleItemDiv.setAttribute("data-groups", '["branding"]');
 
-            let title = document.createElement('div');
-            title.classList.add("p-3");
-            title.textContent = json[j].title;
-            col.appendChild(title);
+            // Card 생성
+            let cardLink = document.createElement('a');
+            cardLink.classList.add('card', 'card-flush', 'card-transition');
 
-            row.appendChild(col);
+            let cardImg = document.createElement('img');
+            cardImg.classList.add('card-img-top');
+            cardImg.src = json[j].image;
+
+            let cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+
+            let cardSubtitle = document.createElement('span');
+            cardSubtitle.classList.add('card-subtitle', 'text-body');
+
+            let cardTitle = document.createElement('h5');
+            cardTitle.classList.add('card-title');
+            cardTitle.textContent = json[j].title;
+
+            cardBody.appendChild(cardSubtitle);
+            cardBody.appendChild(cardTitle);
+
+            cardLink.appendChild(cardImg);
+            cardLink.appendChild(cardBody);
+
+            shuffleItemDiv.appendChild(cardLink);
+
+            shuffleDiv.appendChild(shuffleItemDiv);
         }
 
-        carouselItem.appendChild(row);
-        carouselInner.appendChild(carouselItem);
+        // 부모 요소에 추가합니다.
+        parentDiv.appendChild(shuffleDiv);
 
-        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators1'), {
-            interval: false
-        });
+        // Sticky End Point 생성
+        let stickyEndPoint = document.createElement('div');
+        stickyEndPoint.id = 'stickyBlockEndPoint';
 
-        let nextButton = document.querySelector('#carouselExampleIndicators1 .carousel-control-next');
-        nextButton.addEventListener('click', function () {
-            if (startIndex + 5 < json.length) {
-                startIndex += 5;
+        parentDiv.appendChild(stickyEndPoint);
 
-                let newCarouselItem = document.createElement('div');
-                newCarouselItem.classList.add("carousel-item");
-
-                let newRow = document.createElement('div');
-                newRow.classList.add("row");
-                newRow.classList.add("row-cols-2");
-                newRow.classList.add("row-cols-lg-5");
-                newRow.classList.add("g-2");
-                newRow.classList.add("g-lg-3");
-
-                for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
-                    let col = document.createElement('div');
-                    col.classList.add("col");
-
-                    let img = document.createElement('img');
-                    img.src = json[j].image;
-                    img.classList.add("img-fluid");
-                    img.alt = "베스트셀러";
-                    col.appendChild(img);
-
-                    let title = document.createElement('div');
-                    title.classList.add("p-3");
-                    title.textContent = json[j].title;
-                    col.appendChild(title);
-
-                    newRow.appendChild(col);
-                }
-
-                newCarouselItem.appendChild(newRow);
-                carouselInner.appendChild(newCarouselItem);
-
-                carousel.next();
-            }
-        });
-    });
-
-    const url2 = "./newbooklist.json";
-    getHttpRequest(url2, function (response) {
-        var json = JSON.parse(response);
-
-        let carouselInner = document.querySelector("#carouselExampleIndicators2 .carousel-inner");
-
-        let startIndex = 0;
-
-        let carouselItem = document.createElement('div');
-        carouselItem.classList.add("carousel-item");
-        carouselItem.classList.add("active");
-
-        let row = document.createElement('div');
-        row.classList.add("row");
-        row.classList.add("row-cols-2");
-        row.classList.add("row-cols-lg-5");
-        row.classList.add("g-2");
-        row.classList.add("g-lg-3");
-
-        for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
-            let col = document.createElement('div');
-            col.classList.add("col");
-
-            let img = document.createElement('img');
-            img.src = json[j].image;
-            img.classList.add("img-fluid");
-            img.alt = "신간도서";
-            col.appendChild(img);
-
-            let title = document.createElement('div');
-            title.classList.add("p-3");
-            title.textContent = json[j].title;
-            col.appendChild(title);
-
-            row.appendChild(col);
-        }
-
-        carouselItem.appendChild(row);
-        carouselInner.appendChild(carouselItem);
-
-        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators2'), {
-            interval: false
-        });
-
-        let nextButton = document.querySelector('#carouselExampleIndicators2 .carousel-control-next');
-        nextButton.addEventListener('click', function () {
-            if (startIndex + 5 < json.length) {
-                startIndex += 5;
-
-                let newCarouselItem = document.createElement('div');
-                newCarouselItem.classList.add("carousel-item");
-
-                let newRow = document.createElement('div');
-                newRow.classList.add("row");
-                newRow.classList.add("row-cols-2");
-                newRow.classList.add("row-cols-lg-5");
-                newRow.classList.add("g-2");
-                newRow.classList.add("g-lg-3");
-
-                for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
-                    let col = document.createElement('div');
-                    col.classList.add("col");
-
-                    let img = document.createElement('img');
-                    img.src = json[j].image;
-                    img.classList.add("img-fluid");
-                    img.alt = "신간도서";
-                    col.appendChild(img);
-
-                    let title = document.createElement('div');
-                    title.classList.add("p-3");
-                    title.textContent = json[j].title;
-                    col.appendChild(title);
-
-                    newRow.appendChild(col);
-                }
-
-                newCarouselItem.appendChild(newRow);
-                carouselInner.appendChild(newCarouselItem);
-
-                carousel.next();
-            }
-        });
+        // 최종 결과를 DOM에 추가합니다.
+        document.body.appendChild(parentDiv);
     });
 </script>
 
 
+<!-- JS Plugins Init. -->
+<script>
+    (function () {
+        // INITIALIZATION OF MEGA MENU
+        // =======================================================
+        const megaMenu = new HSMegaMenu('.js-mega-menu', {
+            desktop: {
+                position: 'left'
+            }
+        })
+
+
+        // INITIALIZATION OF SHOW ANIMATIONS
+        // =======================================================
+        new HSShowAnimation('.js-animation-link')
+
+
+        // INITIALIZATION OF BOOTSTRAP VALIDATION
+        // =======================================================
+        HSBsValidation.init('.js-validate', {
+            onSubmit: data => {
+                data.event.preventDefault()
+                alert('Submited')
+            }
+        })
+
+
+        // INITIALIZATION OF GO TO
+        // =======================================================
+        new HSGoTo('.js-go-to')
+
+
+        // INITIALIZATION OF SWIPER
+        // =======================================================
+        var swiper = new Swiper('.js-swiper', {
+            pagination: {
+                el: '.js-swiper-pagination',
+                clickable: true,
+            },
+        });
+
+
+        // INITIALIZATION OF STICKY BLOCKS
+        // =======================================================
+        Promise.all(Array.from(document.images)
+            .filter(img => !img.complete)
+            .map(img => new Promise(resolve => {
+                img.onload = img.onerror = resolve
+            })))
+            .then(() => {
+                new HSStickyBlock('.js-sticky-block', {
+                    targetSelector: document.getElementById('header').classList.contains('navbar-fixed') ? '#header' : null
+                })
+            })
+
+
+        // INITIALIZATION OF SHUFFLE
+        // =======================================================
+        class ShufflePortfolio {
+            constructor(element) {
+                this.element = element;
+                this.shuffle = new Shuffle(element, {
+                    itemSelector: '.js-shuffle-item',
+                    speed: 500
+                });
+
+                this.addFilterButtons();
+            }
+
+            addFilterButtons() {
+                const options = document.querySelector('.js-filter-options');
+                if (!options) {
+                    return;
+                }
+
+                const filterButtons = Array.from(options.children);
+                const onClick = this._handleFilterClick.bind(this);
+                filterButtons.forEach((button) => {
+                    button.addEventListener('click', onClick, false);
+                });
+            }
+
+            _handleFilterClick(evt) {
+                const btn = evt.currentTarget.firstElementChild;
+                const isActive = btn.classList.contains('active');
+                const btnGroup = btn.getAttribute('data-group');
+
+                this._removeActiveClassFromChildren(btn.parentNode.parentNode);
+
+                if (!isActive) {
+                    btn.classList.add('active');
+                    this.shuffle.filter(btnGroup);
+                } else {
+                    btn.classList.remove('active');
+                    this.shuffle.filter(Shuffle.ALL_ITEMS);
+                }
+            }
+
+            _removeActiveClassFromChildren(parent) {
+                const { children } = parent;
+                for (let i = 0; i < children.length; i++) {
+                    children[i].querySelector('.nav-link').classList.remove('active');
+                }
+            }
+        }
+
+        new ShufflePortfolio(document.querySelector('.js-shuffle'));
+
+
+        // Added smooth scroll on sorting
+        const sortingContainer = document.getElementById('sorting-container')
+
+        document.getElementById('navbarSettings').querySelectorAll('.nav-link')
+            .forEach(item => item.addEventListener('click', () => sortingContainer.scrollIntoView({
+                behavior: 'smooth'
+            })))
 
 
 
+    })()
+</script>
 
-<br><br><br>
-<div class="container text-center">
-    <div class="row align-items-md-center">
-        <div class="col-md-6 order-md-2 mb-5 mb-md-0">
-            <div class="position-relative">
-                <!-- * 카카오맵 - 지도퍼가기 -->
-                <!-- 1. 지도 노드 -->
-                <div id="daumRoughmapContainer1685013852810" class="root_daum_roughmap root_daum_roughmap_landing">
-                </div>
 
-                <!--
-	2. 설치 스크립트
-	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
--->
-                <script charset="UTF-8" class="daum_roughmap_loader_script"
-                    src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-
-                <!-- 3. 실행 스크립트 -->
-                <script charset="UTF-8">
-                    new daum.roughmap.Lander({
-                        "timestamp": "1685013852810",
-                        "key": "2ewyk",
-                        "mapWidth": "640",
-                        "mapHeight": "360"
-                    }).render();
-                </script>
-                <div class="position-absolute bottom-0 start-0 p-5">
-                    <!-- Fancybox -->
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <span class="btn btn-icon btn-white text-primary">
-                                <i class="bi-play-circle-fill"></i>
-                            </span>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <span class="text-white">Watch Andrea’s story</span>
-                        </div>
-                    </div>
-                    <!-- End Fancybox -->
-                </div>
-            </div>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-md-6">
-            <div class="pe-md-5">
-                <span class="text-cap" style="font-size: 25px">찾아오시는 길</span>
-                <h3>지식의 성지, 문화의 바다!</h3>
-
-                <!-- Blockquote -->
-                <figure class="mb-7">
-                    <blockquote class="blockquote blockquote-sm">“ 다양한 장르와 주제의 책들로 가득한 도서관에서 새로운 지식과 즐거운 독서 경험을 만끽하세요.
-                        하나 도서관은 독서 문화의 중심지로, 편안하고 아늑한 분위기에서 다양한 독서 행사와 작가 강연, 클럽 활동 등을 진행하고 있습니다. 지식을 키우는 즐거움을 함께하세요! “
-                    </blockquote>
-
-                    <figcaption class="blockquote-footer">
-                        Andrea
-                        <span class="blockquote-footer-source">Director of Sales | MailChimp</span>
-                    </figcaption>
-                </figure>
-                <!-- End Blockquote -->
-            </div>
-        </div>
-        <!-- End Col -->
-    </div>
-</div>
 
     <footer>
         <style>

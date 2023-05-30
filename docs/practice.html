@@ -1,26 +1,638 @@
-<div class="js-sticky-block" data-hs-sticky-block-options="{
-    &quot;parentSelector&quot;: &quot;#navbarVerticalNavMenu&quot;,
-    &quot;targetSelector&quot;: &quot;#header&quot;,
-    &quot;breakpoint&quot;: &quot;md&quot;,
-    &quot;startPoint&quot;: &quot;#navbarVerticalNavMenu&quot;,
-    &quot;endPoint&quot;: &quot;#stickyBlockEndPoint&quot;,
-    &quot;stickyOffsetTop&quot;: 20
-  }" style="position: fixed; left: 134.5px; width: 216px; top: 20px;">
-    <ul id="navbarSettings" class="js-filter-options nav nav-link-gray nav-vertical nav-tabs nav-lg mb-5"
-        role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" href="javascript:;" data-group="all">All</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="javascript:;" data-group="branding">Branding</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="javascript:;" data-group="development">Development</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="javascript:;" data-group="product-design">Product Design</a>
-        </li>
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
 
-    <a class="link" href="#">All our case studies <i class="bi-chevron-right small ms-1"></i></a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <!-- Title -->
+    <title>Portfolio - Case Study | Space - Multipurpose Responsive Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./img/hanalogo2.png">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/hs-mega-menu.min.css">
+
+    <!-- CSS Space Template -->
+    <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+
+    <!-- CSS Implementing Plugins -->
+
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+
+
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/hs-mega-menu.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+
+    <!-- CSS Space Template -->
+    <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+
+    <script src="signup.js"></script>
+
+
+
+</head>
+
+<body>
+    <header>
+        <style>
+    .navbar-brand {
+        padding-right: 10%;
+        padding-right: 50px;
+        font-size: 60px;
+    }
+
+    .nav-item {
+        width: fit-content;
+    }
+
+    footer {
+        margin-top: 10%;
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <img src="./img/hanalogo1.png">
+        <a class="navbar-brand" href="index.html">하나 도서관</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex justify-content-between">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">회원 관리</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="booklist.html">도서 관리</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">대출 관리</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">로그인</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup.html">회원 가입</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </header>
+
+    <style>
+    .form-select {
+        width: 200px;
+        margin-left: 50px;
+    }
+
+    div>div>img {
+        max-width: 200px;
+        height: 300px;
+        margin-right: 50px
+    }
+
+    .block {
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10%;
+        margin-left: 50%;
+        margin-bottom: 450px;
+        align-items: center;
+        /* 추가 */
+        justify-content: center;
+        /* 추가 */
+    }
+
+    .form-inline {
+        display: flex;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .form-inline>.form-select {
+        margin-right: 20px;
+    }
+
+    .form-inline>.form-control {
+        width: 70%;
+        margin-right: 1%;
+    }
+
+    .side-bar {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+
+    }
+
+    .main {
+        display: flex;
+    }
+
+    .search-title {
+        font-size: 25px;
+        text-shadow: 2px 2px 3px rgb(0, 0, 0, 0.2);
+    }
+
+    button {
+        background-color: green;
+        color: white;
+    }
+
+    .star {
+        background-color: antiquewhite;
+    }
+
+    .wrap-map {
+        margin: 0 auto;
+    }
+</style>
+
+<br>
+<hr>
+<div>
+    <form class="form-inline">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>검색 유형</option>
+            <option value="1">회원 검색</option>
+            <option value="2">도서 검색</option>
+        </select>
+        <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="검색">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+    </form>
+
 </div>
+
+<br>
+<br>
+<div id="carouselExampleIndicators1" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="container text-center">
+        <div class="search-title">
+            베스트셀러 도서
+        </div>
+        <div class="carousel-inner">
+            <!-- Carousel items will be dynamically generated -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div id="carouselExampleIndicators2" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="container text-center">
+        <div class="search-title">
+            신간 도서
+        </div>
+        <div class="carousel-inner">
+            <!-- Carousel items will be dynamically generated -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    function getHttpRequest(url, callback) {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function (event) {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    // 요청이 정상적으로 처리된 경우
+                    console.log("success");
+                    callback(request.responseText);
+                } else {
+                    // 에러가 발생한 경우
+                    console.error("Error occurred while making the request");
+                }
+            }
+        };
+
+        const method = "GET";
+        request.open('GET', url, true);
+        request.send();
+    }
+
+    const url1 = "./bestbooklist.json";
+    getHttpRequest(url1, function (response) {
+        var json = JSON.parse(response);
+
+        let carouselInner = document.querySelector("#carouselExampleIndicators1 .carousel-inner");
+
+        let startIndex = 0;
+
+        let carouselItem = document.createElement('div');
+        carouselItem.classList.add("carousel-item");
+        carouselItem.classList.add("active");
+
+        let row = document.createElement('div');
+        row.classList.add("row");
+        row.classList.add("row-cols-2");
+        row.classList.add("row-cols-lg-5");
+        row.classList.add("g-2");
+        row.classList.add("g-lg-3");
+
+        for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
+            let col = document.createElement('div');
+            col.classList.add("col");
+
+            let img = document.createElement('img');
+            img.src = json[j].image;
+            img.classList.add("img-fluid");
+            img.alt = "베스트셀러";
+            col.appendChild(img);
+
+            let title = document.createElement('div');
+            title.classList.add("p-3");
+            title.textContent = json[j].title;
+            col.appendChild(title);
+
+            row.appendChild(col);
+        }
+
+        carouselItem.appendChild(row);
+        carouselInner.appendChild(carouselItem);
+
+        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators1'), {
+            interval: false
+        });
+
+        let nextButton = document.querySelector('#carouselExampleIndicators1 .carousel-control-next');
+        nextButton.addEventListener('click', function () {
+            if (startIndex + 5 < json.length) {
+                startIndex += 5;
+
+                let newCarouselItem = document.createElement('div');
+                newCarouselItem.classList.add("carousel-item");
+
+                let newRow = document.createElement('div');
+                newRow.classList.add("row");
+                newRow.classList.add("row-cols-2");
+                newRow.classList.add("row-cols-lg-5");
+                newRow.classList.add("g-2");
+                newRow.classList.add("g-lg-3");
+
+                for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
+                    let col = document.createElement('div');
+                    col.classList.add("col");
+
+                    let img = document.createElement('img');
+                    img.src = json[j].image;
+                    img.classList.add("img-fluid");
+                    img.alt = "베스트셀러";
+                    col.appendChild(img);
+
+                    let title = document.createElement('div');
+                    title.classList.add("p-3");
+                    title.textContent = json[j].title;
+                    col.appendChild(title);
+
+                    newRow.appendChild(col);
+                }
+
+                newCarouselItem.appendChild(newRow);
+                carouselInner.appendChild(newCarouselItem);
+
+                carousel.next();
+            }
+        });
+    });
+
+    const url2 = "./newbooklist.json";
+    getHttpRequest(url2, function (response) {
+        var json = JSON.parse(response);
+
+        let carouselInner = document.querySelector("#carouselExampleIndicators2 .carousel-inner");
+
+        let startIndex = 0;
+
+        let carouselItem = document.createElement('div');
+        carouselItem.classList.add("carousel-item");
+        carouselItem.classList.add("active");
+
+        let row = document.createElement('div');
+        row.classList.add("row");
+        row.classList.add("row-cols-2");
+        row.classList.add("row-cols-lg-5");
+        row.classList.add("g-2");
+        row.classList.add("g-lg-3");
+
+        for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
+            let col = document.createElement('div');
+            col.classList.add("col");
+
+            let img = document.createElement('img');
+            img.src = json[j].image;
+            img.classList.add("img-fluid");
+            img.alt = "신간도서";
+            col.appendChild(img);
+
+            let title = document.createElement('div');
+            title.classList.add("p-3");
+            title.textContent = json[j].title;
+            col.appendChild(title);
+
+            row.appendChild(col);
+        }
+
+        carouselItem.appendChild(row);
+        carouselInner.appendChild(carouselItem);
+
+        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators2'), {
+            interval: false
+        });
+
+        let nextButton = document.querySelector('#carouselExampleIndicators2 .carousel-control-next');
+        nextButton.addEventListener('click', function () {
+            if (startIndex + 5 < json.length) {
+                startIndex += 5;
+
+                let newCarouselItem = document.createElement('div');
+                newCarouselItem.classList.add("carousel-item");
+
+                let newRow = document.createElement('div');
+                newRow.classList.add("row");
+                newRow.classList.add("row-cols-2");
+                newRow.classList.add("row-cols-lg-5");
+                newRow.classList.add("g-2");
+                newRow.classList.add("g-lg-3");
+
+                for (var j = startIndex; j < startIndex + 5 && j < json.length; j++) {
+                    let col = document.createElement('div');
+                    col.classList.add("col");
+
+                    let img = document.createElement('img');
+                    img.src = json[j].image;
+                    img.classList.add("img-fluid");
+                    img.alt = "신간도서";
+                    col.appendChild(img);
+
+                    let title = document.createElement('div');
+                    title.classList.add("p-3");
+                    title.textContent = json[j].title;
+                    col.appendChild(title);
+
+                    newRow.appendChild(col);
+                }
+
+                newCarouselItem.appendChild(newRow);
+                carouselInner.appendChild(newCarouselItem);
+
+                carousel.next();
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+<br><br><br>
+<div class="container text-center">
+    <div class="row align-items-md-center">
+        <div class="col-md-6 order-md-2 mb-5 mb-md-0">
+            <div class="position-relative">
+                <!-- * 카카오맵 - 지도퍼가기 -->
+                <!-- 1. 지도 노드 -->
+                <div id="daumRoughmapContainer1685013852810" class="root_daum_roughmap root_daum_roughmap_landing">
+                </div>
+
+                <!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+                <script charset="UTF-8" class="daum_roughmap_loader_script"
+                    src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+                <!-- 3. 실행 스크립트 -->
+                <script charset="UTF-8">
+                    new daum.roughmap.Lander({
+                        "timestamp": "1685013852810",
+                        "key": "2ewyk",
+                        "mapWidth": "640",
+                        "mapHeight": "360"
+                    }).render();
+                </script>
+                <div class="position-absolute bottom-0 start-0 p-5">
+                    <!-- Fancybox -->
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <span class="btn btn-icon btn-white text-primary">
+                                <i class="bi-play-circle-fill"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <span class="text-white">Watch Andrea’s story</span>
+                        </div>
+                    </div>
+                    <!-- End Fancybox -->
+                </div>
+            </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+            <div class="pe-md-5">
+                <span class="text-cap" style="font-size: 25px">찾아오시는 길</span>
+                <h3>지식의 성지, 문화의 바다!</h3>
+
+                <!-- Blockquote -->
+                <figure class="mb-7">
+                    <blockquote class="blockquote blockquote-sm">“ 다양한 장르와 주제의 책들로 가득한 도서관에서 새로운 지식과 즐거운 독서 경험을 만끽하세요.
+                        하나 도서관은 독서 문화의 중심지로, 편안하고 아늑한 분위기에서 다양한 독서 행사와 작가 강연, 클럽 활동 등을 진행하고 있습니다. 지식을 키우는 즐거움을 함께하세요! “
+                    </blockquote>
+
+                    <figcaption class="blockquote-footer">
+                        Andrea
+                        <span class="blockquote-footer-source">Director of Sales | MailChimp</span>
+                    </figcaption>
+                </figure>
+                <!-- End Blockquote -->
+            </div>
+        </div>
+        <!-- End Col -->
+    </div>
+</div>
+
+    <footer>
+        <style>
+    footer {
+        width: 100%;
+        padding: 30px 0;
+        padding-bottom: 0;
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+    }
+
+    .bg-primary-dark {
+        width: 100%;
+    }
+</style>
+
+
+<!-- ========== FOOTER ========== -->
+<div class="bg-primary-dark border-top border-white-10">
+    <div class="container">
+        <div class="row content-space-1">
+            <div class="col-lg-3 mb-7 mb-lg-0">
+                <!-- Logo -->
+                <div class="mb-5">
+                    <a class="navbar-brand" href="./index.html" aria-label="Space">
+                        <img class="navbar-brand-logo" src="./img/hanalogo2.png" alt="Image Description">
+                    </a>
+                </div>
+                <!-- End Logo -->
+
+                <span class="d-block">
+                    <label class="form-label text-white">하나 도서관</label>
+                </span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm mb-7 mb-sm-0">
+                <span class="text-cap text-primary-light">Home</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="index.html">Home</a></li>
+                    <li><a class="link-sm link-light" href="index.html">Main</a></li>
+                    <li><a class="link-sm link-light" href="index.html">HomePage</a></li>
+                    <li><a class="link-sm link-light" href="index.html">MainPage</a></li>
+                    <li><a class="link-sm link-light" href="index.html">홈화면</a></li>
+                    <li><a class="link-sm link-light" href="index.html">메인화면</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm mb-7 mb-sm-0">
+                <span class="text-cap text-primary-light">회원관리</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="#">Belonging <i class="bi-box-arrow-up-right ms-1"></i></a>
+                    </li>
+                    <li><a class="link-sm link-light" href="#">Company</a></li>
+                    <li><a class="link-sm link-light" href="#">Careers <span
+                                class="badge bg-warning text-dark rounded-pill ms-2">We're hiring</span></a></li>
+                    <li><a class="link-sm link-light" href="#">Contacts</a></li>
+                    <li><a class="link-sm link-light" href="#">Security</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm">
+                <span class="text-cap text-primary-light">도서관리</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="booklist.html">도서</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">책</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">책목록</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">BookList</a></li>
+                    <li><a class="link-sm link-light" href="booklist.html">Book</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm">
+                <span class="text-cap text-primary-light">대출관리</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-5">
+                    <li><a class="link-sm link-light" href="#">Terms of use</a></li>
+                    <li><a class="link-sm link-light" href="#">Privacy policy <i
+                                class="bi-box-arrow-up-right ms-1"></i></a></li>
+                </ul>
+                <!-- End List -->
+
+                <span class="text-cap text-primary-light">Docs</span>
+
+                <!-- List -->
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li><a class="link-sm link-light" href="#">Documentation</a></li>
+                    <li><a class="link-sm link-light" href="#">Snippets</a></li>
+                </ul>
+                <!-- End List -->
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <div class="border-top border-white-10"></div>
+
+        <div class="row align-items-md-end py-5">
+            <div class="col-md mb-3 mb-md-0">
+                <p class="text-white mb-0">© Space. 2023 Htmlstream. All rights reserved.</p>
+            </div>
+
+            <div class="col-md d-md-flex justify-content-md-end">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ========== END FOOTER ========== -->
+    </footer>
+</body>
+
+</html>

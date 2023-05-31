@@ -1,23 +1,9 @@
 ---
 layout : layout-login
 ---
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        //패스워드 체크
-        let passwd = document.querySelector("#inputPassword");
-        let passwdck = document.querySelector("#inputPassword2");
-
-        let message = document.createElement("p");
-        message.style.color = "green";
-        message.style.fontWeight = "bold";
-
-        passwdck.addEventListener("input", function () {
-            if (passwd.value === passwdck.value) {
-                message.textContent = "비밀번호가 일치합니다.";
-            } else {
-                message.textContent = "비밀번호가 일치하지 않습니다.";
-            }
-        });
 
         //핸드폰 번호 형식
         let phoneNumberInput = document.querySelector("#inputPhoneNumber");
@@ -175,7 +161,7 @@ layout : layout-login
             <input type="password" class="form-control" id="inputPassword">
         </div>
         <div class="col-12" id="passwordContainer">
-            <label for="inputPassword4" class="form-label">Password</label>
+            <label for="inputPassword2" class="form-label">Password</label>
             <input type="text" class="form-control" id="inputPassword2" placeholder="비밀번호 확인">
         </div>
         <div class="col-12">

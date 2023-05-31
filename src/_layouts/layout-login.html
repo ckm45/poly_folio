@@ -1,104 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout : bootstrap
+---
+<style>
+    /* 스타일 변경 */
+    .no-link {
+        text-decoration: none;
+        color: black;
+        cursor: default;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hana Library</title>
-    <!-- Title -->
-    <title>Portfolio - Case Study | Space - Multipurpose Responsive Template</title>
+    /* 활성 링크 스타일 유지 */
+    .no-link:hover,
+    .no-link:active {
+        color: inherit;
+        cursor: default;
+    }
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./favicon.ico">
+    header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3%;
+    }
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    header>div {
+        display: flex;
+        justify-content: center;
+        /* 가로 중앙 정렬 */
+        align-items: center;
+        /* 세로 중앙 정렬 */
+    }
+</style>
+<header>
+    <div>
+        <a class="no-link" href="index.html"><img src="./img/hanalogo1.png"></a>
+    </div>
+    <div>
+        <h2>
+            하나 도서관
+        </h2>
+    </div>
+</header>
 
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="./assets/css/hs-mega-menu.min.css">
+{{content}}
 
-    <!-- CSS Space Template -->
-    <link rel="stylesheet" href="./assets/css/theme.min.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        //패스워드 체크
+        let passwd = document.querySelector("#inputPassword");
+        let passwdck = document.querySelector("#inputPassword2");
 
-    <style>
-        /* 스타일 변경 */
-        .no-link {
-            text-decoration: none;
-            color: black;
-            cursor: default;
-        }
+        let message = document.createElement("p");
+        message.style.color = "green";
+        message.style.fontWeight = "bold";
 
-        /* 활성 링크 스타일 유지 */
-        .no-link:hover,
-        .no-link:active {
-            color: inherit;
-            cursor: default;
-        }
-
-        header>div {
-            display: flex;
-            justify-content: center;
-            /* 가로 중앙 정렬 */
-            align-items: center;
-            /* 세로 중앙 정렬 */
-        }
-    </style>
-
-    <script src="login.js"></script>
-    <script src="signup.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let passwd = document.querySelector("#inputPassword");
-            let passwdck = document.querySelector("#inputPassword2");
-
-            let message = document.createElement("p"); // 새로운 <p> 요소 생성
-            message.style.color = "green"; // 문구 색상 설정 (예: 녹색)
-            message.style.fontWeight = "bold"; // 문구 굵게 설정 (예: bold)
-
-            passwd.addEventListener("input", function () {
-                if (passwd.value === passwdck.value) {
-                    message.textContent = "비밀번호가 일치합니다."; // 문구 설정
-                } else {
-                    message.textContent = "비밀번호가 일치하지 않습니다."; // 일치하지 않을 때는 빈 문구로 설정
-                }
-            });
-
-            passwdck.addEventListener("input", function () {
-                if (passwd.value === passwdck.value) {
-                    message.textContent = "비밀번호가 일치합니다."; // 문구 설정
-                } else {
-                    message.textContent = "비밀번호가 일치하지 않습니다."; // 일치하지 않을 때는 빈 문구로 설정
-                }
-            });
-
-            // 문구를 해당 위치에 추가
-            document.querySelector("#passwordContainer").appendChild(message);
+        passwdck.addEventListener("input", function () {
+            if (passwd.value === passwdck.value) {
+                message.textContent = "비밀번호가 일치합니다.";
+            } else {
+                message.textContent = "비밀번호가 일치하지 않습니다.";
+            }
         });
 
+        //핸드폰 번호 형식
+        let phoneNumberInput = document.querySelector("#inputPhoneNumber");
 
-    </script>
+        phoneNumberInput.addEventListener("focus", function () {
+            formatPhoneNumberInput(this);
+        });
 
-</head>
+        phoneNumberInput.addEventListener("input", function () {
+            formatPhoneNumberInput(this);
+        });
 
-<body>
-    <header>
-        <div>
-            <a class="no-link" href="index.html"><img src="./img/hanalogo1.png"></a>
-        </div>
-        <div>
-            <h2>
-                하나 도서관
-            </h2>
-        </div>
-    </header>
+        function formatPhoneNumberInput(input) {
+            let phoneNumber = input.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+            let formattedPhoneNumber = formatPhoneNumber(phoneNumber);
+            input.value = formattedPhoneNumber;
+        }
 
-    {{content}}
-    <br><br><br><br><br>
-    <footer>
-        {% include footer.html %};
-    </footer>
-</body>
+        function formatPhoneNumber(phoneNumber) {
+            let formattedNumber = phoneNumber;
+            if (phoneNumber.length > 3) {
+                formattedNumber = phoneNumber.replace(/(\d{3})(\d)/, "$1-$2");
+            }
+            if (phoneNumber.length > 7) {
+                formattedNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{0,4}).*/, "$1-$2-$3");
+            }
+            return formattedNumber;
+        }
 
-</html>
+
+
+
+
+        //회원가입 버튼
+        let signupButton = document.getElementById("signupButton");
+        if (signupButton) {
+            signupButton.addEventListener("click", function () {
+                if (document.getElementById("gridCheck").checked) {
+                    signup(); // 체크박스가 선택되어 있을 경우 회원가입 절차를 진행합니다.
+                    showMessage(""); // 회원가입 절차가 진행되면 메시지를 초기화합니다.
+                } else {
+                    showMessage("회원가입을 위해서는 약관에 동의해야 합니다."); // 체크박스가 선택되지 않은 경우 메시지를 표시합니다.
+                }
+            });
+        }
+
+        function showMessage(message) {
+            let messageContainer = document.getElementById("messageContainer");
+
+            if (messageContainer) {
+                // 메시지 컨테이너가 이미 존재하는 경우 내용을 변경합니다.
+                messageContainer.textContent = message;
+            } else {
+                // 메시지 컨테이너가 존재하지 않는 경우 새로 생성합니다.
+                messageContainer = document.createElement("p");
+                messageContainer.id = "messageContainer";
+                messageContainer.style.color = "red";
+                messageContainer.style.fontWeight = "bold";
+                let form = document.querySelector(".main form");
+                form.appendChild(messageContainer);
+            }
+
+            if (message === "") {
+                // 메시지가 빈 문자열인 경우 메시지 컨테이너를 숨깁니다.
+                messageContainer.style.display = "none";
+            } else {
+                // 메시지가 비어있지 않은 경우 메시지 컨테이너를 보여줍니다.
+                messageContainer.style.display = "block";
+                messageContainer.textContent = message;
+            }
+        }
+    });
+
+</script>
+<br><br><br><br><br>
+<footer>
+    {% include footer.html %};
+</footer>

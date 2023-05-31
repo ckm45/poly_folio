@@ -1,0 +1,44 @@
+{
+    "bestbooklist": [
+        {
+            "title": "세이노의 가르침",
+            "image": "/img/bestbook1.png"
+        },
+        {
+            "title": "흔한 남매13",
+            "image": "/img/bestbook2.png"
+        },
+        {
+            "title": "사장학개론",
+            "image": "/img/bestbook3.png"
+        },
+        {
+            "title": "챗GPT, 질문이 돈이 되는 세상",
+            "image": "/img/bestbook4.png"
+        },
+        {
+            "title": "모성",
+            "image": "/img/bestbook5.png"
+        },
+        {
+            "title": "Git 교과서",
+            "image": "/img/bestbook6.png"
+        },
+        {
+            "title": "모든 삶은 흐른다",
+            "image": "/img/bestbook7.png"
+        },
+        {
+            "title": "우정 도둑",
+            "image": "/img/bestbook8.png"
+        },
+        {
+            "title": "돌연한 출발",
+            "image": "/img/bestbook9.png"
+        },
+        {
+            "title": "아주 세속적인 지혜",
+            "image": "/img/bestbook10.png"
+        }
+    ]
+}

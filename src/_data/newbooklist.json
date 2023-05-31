@@ -1,0 +1,44 @@
+{
+    "newbooklist": [
+        {
+            "title": "인생에서 가장 후회되는 게 뭐냐고 묻는다면",
+            "image": "img/bestbook11.png"
+        },
+        {
+            "title": "원씽",
+            "image": "img/bestbook12.png"
+        },
+        {
+            "title": "끈기보다 끊기",
+            "image": "img/bestbook13.png"
+        },
+        {
+            "title": "모순",
+            "image": "img/bestbook14.png"
+        },
+        {
+            "title": "우리는 행복을 진단한다",
+            "image": "img/bestbook15.png"
+        },
+        {
+            "title": "인류의 여정",
+            "image": "img/bestbook16.png"
+        },
+        {
+            "title": "헤아림의 조각들",
+            "image": "img/bestbook17.png"
+        },
+        {
+            "title": "익명소설",
+            "image": "img/bestbook18.png"
+        },
+        {
+            "title": "디베이트",
+            "image": "img/bestbook19.png"
+        },
+        {
+            "title": "점프 투 파이썬",
+            "image": "img/bestbook20.png"
+        }
+    ]
+}

@@ -69,13 +69,13 @@ layout : layout-top
                                 <a class="nav-link active" href="javascript:;" data-group="all">All</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="javascript:;" data-group="branding">BestSeller</a>
+                                <a class="nav-link" href="javascript:;" data-group="BestSeller">BestSeller</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="javascript:;" data-group="development">New</a>
+                                <a class="nav-link" href="javascript:;" data-group="New">New</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="javascript:;" data-group="product-design">Recommend</a>
+                                <a class="nav-link" href="javascript:;" data-group="Recommend">Recommend</a>
                             </li>
                         </ul>
 
@@ -86,145 +86,76 @@ layout : layout-top
             </div>
         </div>
         <!-- End Col -->
-
         <div class="col-md-8">
             <div class="js-shuffle row row-cols-1 row-cols-md-2">
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["branding"]'>
+                <!-- Start Loop -->
+                {% assign books = site.data.bestbooklist.bestbooklist %}
+                {% for book in books %}
+                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["BestSeller"]'>
                     <!-- Card -->
                     <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook1.png" alt="Image Description">
+                        <img class="card-img-top" src="{{ book.image }}" alt="Image Description">
                         <div class="card-body">
-                            <span class="card-subtitle text-body">Branding</span>
-                            <h5 class="card-title">세이노의 가르침</h5>
+                            <span class="card-subtitle text-body">BestSeller</span>
+                            <h5 class="card-title">{{ book.title }}</h5>
                         </div>
                     </a>
                     <!-- End Card -->
                 </div>
                 <!-- End Col -->
+                {% endfor %}
+                <!-- End Loop -->
 
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["development"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook2.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Development</span>
-                            <h5 class="card-title">흔한 남매13</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
 
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["product-design"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook3.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Product Design</span>
-                            <h5 class="card-title">사장학개론</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
 
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["product-design"]'>
+                <!-- Start Loop -->
+                {% assign newbooklist = site.data.newbooklist.newbooklist %}
+                {% for book2 in newbooklist %}
+                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["New"]'>
                     <!-- Card -->
                     <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook4.png" alt="Image Description">
+                        <img class="card-img-top" src="{{ book2.image }}" alt="Image Description">
                         <div class="card-body">
-                            <span class="card-subtitle text-body">Product Design</span>
-                            <h5 class="card-title">챗GPT, 질문이 돈이 되는 세상</h5>
+                            <span class="card-subtitle text-body">New</span>
+                            <h5 class="card-title">{{ book2.title }}</h5>
                         </div>
                     </a>
                     <!-- End Card -->
                 </div>
                 <!-- End Col -->
+                {% endfor %}
+                <!-- End Loop -->
 
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["product"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook5.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Product Design</span>
-                            <h5 class="card-title">모성</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
 
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["product-design"]'>
+
+                <!-- Start Loop -->
+                {% assign recbooklist = site.data.recbooklist.recbooklist %}
+                {% for book3 in recbooklist %}
+                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["Recommend"]'>
                     <!-- Card -->
                     <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook6.png" alt="Image Description">
+                        <img class="card-img-top" src="{{ book3.image }}" alt="Image Description">
                         <div class="card-body">
-                            <span class="card-subtitle text-body">Branding</span>
-                            <h5 class="card-title">GIT 교과서</h5>
+                            <span class="card-subtitle text-body">Recommend</span>
+                            <h5 class="card-title">{{ book3.title }}</h5>
                         </div>
                     </a>
                     <!-- End Card -->
                 </div>
                 <!-- End Col -->
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["branding"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook7.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Branding</span>
-                            <h5 class="card-title">모든 삶은 흐른다</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["product-design"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook8.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Branding</span>
-                            <h5 class="card-title">우정 도둑</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["branding"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook9.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Branding</span>
-                            <h5 class="card-title">돌연한 출발</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
-                <div class="js-shuffle-item col-sm-6 mb-5" data-groups='["development"]'>
-                    <!-- Card -->
-                    <a class="card card-flush card-transition" href="./portfolio-case-study.html">
-                        <img class="card-img-top" src="./img/bestbook10.png" alt="Image Description">
-                        <div class="card-body">
-                            <span class="card-subtitle text-body">Branding</span>
-                            <h5 class="card-title">아주 세속적인 지혜</h5>
-                        </div>
-                    </a>
-                    <!-- End Card -->
-                </div>
-                <!-- End Col -->
+                {% endfor %}
+                <!-- End Loop -->
             </div>
-            <!-- End Row -->
+
 
             <!-- End Sticky End Point -->
             <div id="stickyBlockEndPoint"></div>
         </div>
-        <!-- End Col -->
     </div>
-    <!-- End Row -->
+    <!-- End Col -->
 </div>
-<!-- End Portfolio - Grid -->
+<!-- End Row -->
+
 
 
 
@@ -347,7 +278,7 @@ layout : layout-top
                 behavior: 'smooth'
             })))
 
-        
-        
+
+
     })()
 </script>

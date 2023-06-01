@@ -28,9 +28,10 @@
 
         .pagination {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             margin-top: 16px;
         }
+
 
         .pagination a {
             display: inline-block;
@@ -44,6 +45,23 @@
         .pagination a.active {
             background-color: gray;
             color: white;
+        }
+
+        /* Added CSS for alignment */
+        th:first-child,
+        td:first-child,
+        th:nth-child(2),
+        td:nth-child(2) {
+            text-align: center;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            text-align: left;
+        }
+
+        tr.checked {
+            background-color: yellow;
         }
     </style>
     <title>Document</title>
@@ -60,6 +78,11 @@
 
         // 드래그 시작할 때 호출되는 함수
         function dragStart(e) {
+            // 체크박스 클릭 시 드래그 방지
+            if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+                return;
+            }
+
             draggedElement = e.target.closest('tr');
             prevIndex = Array.from(draggedElement.parentNode.children).indexOf(draggedElement);
             e.dataTransfer.effectAllowed = 'move';
@@ -94,7 +117,26 @@
             const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
             checkboxes.forEach(function (checkbox) {
                 checkbox.checked = event.target.checked;
+                const row = checkbox.closest('tr');
+                row.draggable = checkbox.checked;
+                if (event.target.checked) {
+                    row.classList.add('checked');
+                } else {
+                    row.classList.remove('checked');
+                }
             });
+        }
+
+        function toggleCheckbox(event) {
+            const checkbox = event.target;
+            const row = checkbox.closest('tr');
+            if (checkbox.checked) {
+                row.draggable = true;
+                row.classList.add('checked');
+            } else {
+                row.draggable = false;
+                row.classList.remove('checked');
+            }
         }
 
         function displayForumData(pageSize, currentPage) {
@@ -120,16 +162,21 @@
                     // 테이블 생성
                     const table = document.createElement('table');
                     const thead = document.createElement('thead');
-                    const tbody = document.createElement('tbody');
+                    const tbody = document.createElement('tbody'); // 변경: tbody 추가
 
                     const headerRow = document.createElement('tr');
                     const checkboxHeader = document.createElement('th');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.addEventListener('click', toggleAllCheckboxes);
+                    checkboxHeader.appendChild(checkbox);
+                    headerRow.appendChild(checkboxHeader);
+
                     const idHeader = document.createElement('th');
                     idHeader.textContent = 'ID';
                     const titleHeader = document.createElement('th');
                     titleHeader.textContent = 'Title';
 
-                    headerRow.appendChild(checkboxHeader);
                     headerRow.appendChild(idHeader);
                     headerRow.appendChild(titleHeader);
                     thead.appendChild(headerRow);
@@ -150,6 +197,7 @@
                         const checkbox = document.createElement('input');
                         checkbox.type = 'checkbox';
                         checkboxCell.appendChild(checkbox);
+                        checkbox.addEventListener('click', toggleCheckbox);
 
                         row.draggable = false;
 
@@ -159,11 +207,11 @@
                             row.classList.add('odd');
                         }
 
-                        tbody.appendChild(row);
+                        tbody.appendChild(row); // 변경: tbody에 row 추가
                     }
 
                     table.appendChild(thead);
-                    table.appendChild(tbody);
+                    table.appendChild(tbody); // 변경: tbody 추가
 
                     tableContainer.innerHTML = '';
                     tableContainer.appendChild(table);
@@ -183,7 +231,13 @@
                         checkbox.addEventListener('click', function (e) {
                             e.stopPropagation();
                             const row = e.target.closest('tr');
-                            row.draggable = e.target.checked;
+                            if (e.target.checked) {
+                                row.draggable = true;
+                                row.classList.add('checked');
+                            } else {
+                                row.draggable = false;
+                                row.classList.remove('checked');
+                            }
                         });
                     });
 
@@ -203,10 +257,6 @@
                         });
                         paginationContainer.appendChild(link);
                     }
-
-                    // 첫 행의 체크박스 클릭 시 현재 페이지의 모든 체크박스 선택/해제
-                    const firstRowCheckbox = document.querySelector('thead input[type="checkbox"]');
-                    firstRowCheckbox.addEventListener('click', toggleAllCheckboxes);
                 })
                 .catch((error) => {
                     console.log('Error:', error);
@@ -216,6 +266,7 @@
         const pageSize = 10;
         const initialPage = 1;
         displayForumData(pageSize, initialPage);
+
     </script>
 </body>
 

@@ -1,211 +1,222 @@
----
-layout : layout-login
----
+<!DOCTYPE html>
+<html lang="en">
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-        //핸드폰 번호 형식
-        let phoneNumberInput = document.querySelector("#inputPhoneNumber");
-
-        phoneNumberInput.addEventListener("focus", function () {
-            formatPhoneNumberInput(this);
-        });
-
-        phoneNumberInput.addEventListener("input", function () {
-            formatPhoneNumberInput(this);
-        });
-
-        function formatPhoneNumberInput(input) {
-            let phoneNumber = input.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
-            let formattedPhoneNumber = formatPhoneNumber(phoneNumber);
-            input.value = formattedPhoneNumber;
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        function formatPhoneNumber(phoneNumber) {
-            let formattedNumber = phoneNumber;
-            if (phoneNumber.length > 3) {
-                formattedNumber = phoneNumber.replace(/(\d{3})(\d)/, "$1-$2");
-            }
-            if (phoneNumber.length > 7) {
-                formattedNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{0,4}).*/, "$1-$2-$3");
-            }
-            return formattedNumber;
+        th,
+        td {
+            border: 1px solid white;
+            padding: 8px;
         }
 
+        th {
+            background-color: black;
+            color: white;
+        }
 
+        tr:nth-child(even) {
+            background-color: lightgray;
+        }
 
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+        }
 
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: black;
+            border: 1px solid gray;
+            margin: 0 4px;
+        }
 
-        //회원가입 버튼
-        let signupButton = document.getElementById("signupButton");
-        if (signupButton) {
-            signupButton.addEventListener("click", function () {
-                if (document.getElementById("gridCheck").checked) {
-                    signup(); // 체크박스가 선택되어 있을 경우 회원가입 절차를 진행합니다.
-                    showMessage(""); // 회원가입 절차가 진행되면 메시지를 초기화합니다.
+        .pagination a.active {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="tableContainer"></div>
+    <div class="pagination"></div>
+
+    <script>
+        // 드래그 중인 요소와 이전 위치를 저장할 변수
+        let draggedElement = null;
+        let prevIndex = null;
+
+        // 드래그 시작할 때 호출되는 함수
+        function dragStart(e) {
+            draggedElement = e.target.closest('tr');
+            prevIndex = Array.from(draggedElement.parentNode.children).indexOf(draggedElement);
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', draggedElement.innerHTML);
+            draggedElement.classList.add('dragging');
+        }
+
+        // 드래그 중일 때 호출되는 함수
+        function dragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            const targetElement = event.target.closest('tr');
+            if (targetElement && targetElement !== draggedElement) {
+                const currentIndex = Array.from(targetElement.parentNode.children).indexOf(targetElement);
+                if (currentIndex > prevIndex) {
+                    targetElement.parentNode.insertBefore(draggedElement, targetElement.nextSibling);
                 } else {
-                    showMessage("회원가입을 위해서는 약관에 동의해야 합니다."); // 체크박스가 선택되지 않은 경우 메시지를 표시합니다.
+                    targetElement.parentNode.insertBefore(draggedElement, targetElement);
                 }
+                prevIndex = currentIndex;
+            }
+        }
+
+        // 드래그 종료할 때 호출되는 함수
+        function dragEnd(event) {
+            draggedElement.classList.remove('dragging');
+            draggedElement = null;
+            prevIndex = null;
+        }
+
+        function toggleAllCheckboxes(event) {
+            const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = event.target.checked;
             });
         }
 
-        function showMessage(message) {
-            let messageContainer = document.getElementById("messageContainer");
+        function displayForumData(pageSize, currentPage) {
+            const tableContainer = document.getElementById('tableContainer');
+            const paginationContainer = document.querySelector('.pagination');
 
-            if (messageContainer) {
-                // 메시지 컨테이너가 이미 존재하는 경우 내용을 변경합니다.
-                messageContainer.textContent = message;
-            } else {
-                // 메시지 컨테이너가 존재하지 않는 경우 새로 생성합니다.
-                messageContainer = document.createElement("p");
-                messageContainer.id = "messageContainer";
-                messageContainer.style.color = "red";
-                messageContainer.style.fontWeight = "bold";
-                let form = document.querySelector(".main form");
-                form.appendChild(messageContainer);
-            }
+            fetch('forum.json')
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not OK');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    // 페이지네이션 계산
+                    const totalItems = data.length;
+                    const totalPages = Math.ceil(totalItems / pageSize);
 
-            if (message === "") {
-                // 메시지가 빈 문자열인 경우 메시지 컨테이너를 숨깁니다.
-                messageContainer.style.display = "none";
-            } else {
-                // 메시지가 비어있지 않은 경우 메시지 컨테이너를 보여줍니다.
-                messageContainer.style.display = "block";
-                messageContainer.textContent = message;
-            }
+                    // 현재 페이지 범위 계산
+                    const startIndex = (currentPage - 1) * pageSize;
+                    const endIndex = Math.min(startIndex + pageSize, totalItems);
+
+                    // 테이블 생성
+                    const table = document.createElement('table');
+                    const thead = document.createElement('thead');
+                    const tbody = document.createElement('tbody');
+
+                    const headerRow = document.createElement('tr');
+                    const checkboxHeader = document.createElement('th');
+                    const idHeader = document.createElement('th');
+                    idHeader.textContent = 'ID';
+                    const titleHeader = document.createElement('th');
+                    titleHeader.textContent = 'Title';
+
+                    headerRow.appendChild(checkboxHeader);
+                    headerRow.appendChild(idHeader);
+                    headerRow.appendChild(titleHeader);
+                    thead.appendChild(headerRow);
+
+                    for (let i = startIndex; i < endIndex; i++) {
+                        const item = data[i];
+                        const row = document.createElement('tr');
+                        const checkboxCell = document.createElement('td');
+                        const idCell = document.createElement('td');
+                        idCell.textContent = item.id;
+                        const titleCell = document.createElement('td');
+                        titleCell.textContent = item.title;
+
+                        row.appendChild(checkboxCell);
+                        row.appendChild(idCell);
+                        row.appendChild(titleCell);
+
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkboxCell.appendChild(checkbox);
+
+                        row.draggable = false;
+
+                        if (item.id % 2 === 0) {
+                            row.classList.add('even');
+                        } else {
+                            row.classList.add('odd');
+                        }
+
+                        tbody.appendChild(row);
+                    }
+
+                    table.appendChild(thead);
+                    table.appendChild(tbody);
+
+                    tableContainer.innerHTML = '';
+                    tableContainer.appendChild(table);
+
+                    // 드래그 관련 이벤트 리스너 등록
+                    const rows = document.querySelectorAll('tbody tr');
+
+                    rows.forEach(function (el) {
+                        el.addEventListener('dragstart', dragStart);
+                        el.addEventListener('dragover', dragOver);
+                        el.addEventListener('dragend', dragEnd);
+                    });
+
+                    // 체크박스 클릭 시 드래그 가능 상태 변경
+                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(function (checkbox) {
+                        checkbox.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            const row = e.target.closest('tr');
+                            row.draggable = e.target.checked;
+                        });
+                    });
+
+                    // 페이지네이션 링크 생성
+                    paginationContainer.innerHTML = '';
+
+                    for (let i = 1; i <= totalPages; i++) {
+                        const link = document.createElement('a');
+                        link.href = '#';
+                        link.textContent = i;
+                        if (i === currentPage) {
+                            link.classList.add('active');
+                        }
+                        link.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            displayForumData(pageSize, i);
+                        });
+                        paginationContainer.appendChild(link);
+                    }
+
+                    // 첫 행의 체크박스 클릭 시 현재 페이지의 모든 체크박스 선택/해제
+                    const firstRowCheckbox = document.querySelector('thead input[type="checkbox"]');
+                    firstRowCheckbox.addEventListener('click', toggleAllCheckboxes);
+                })
+                .catch((error) => {
+                    console.log('Error:', error);
+                });
         }
-    });
 
-</script>
-<script>
-    function showDatePicker() {
-        var datePicker = document.createElement("input");
-        datePicker.type = "date";
-        datePicker.id = "datePicker";
-        datePicker.style.display = "none";
-        datePicker.addEventListener("change", function () {
-            var selectedDate = this.value;
-            document.getElementById("inputBirthday").value = selectedDate;
-            document.body.removeChild(datePicker);
-        });
+        const pageSize = 10;
+        const initialPage = 1;
+        displayForumData(pageSize, initialPage);
+    </script>
+</body>
 
-        document.body.appendChild(datePicker);
-        datePicker.click();
-    }
-
-    document.getElementById("inputBirthday").addEventListener("click", function () {
-        showDatePicker();
-    });
-</script>
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-    }
-
-    .main {
-        width: 100%;
-        max-width: 500px;
-        padding: 30px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-    }
-
-    .row {
-        margin-bottom: 20px;
-    }
-
-    .row>input {
-        font-size: 20px;
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-
-    .col-md-6 {
-        flex-grow: 1;
-    }
-
-    .form-label {
-        margin-bottom: 10px;
-    }
-
-    button {
-        display: block;
-        width: 100%;
-        padding: 15px;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: #fff;
-        cursor: pointer;
-    }
-</style>
-
-
-<div class="main">
-    <form class="row g-3">
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4">
-        </div>
-        <div class="col-md-6">
-            <label for="inputPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword">
-        </div>
-        <div class="col-12" id="passwordContainer">
-            <label for="inputPassword2" class="form-label">Password</label>
-            <input type="text" class="form-control" id="inputPassword2" placeholder="비밀번호 확인">
-        </div>
-        <div class="col-12">
-            <label for="inputBirthday" class="form-label">Birthday</label>
-            <input type="date" class="form-control" id="inputBirthday" placeholder="생년월일을 입력해주세요">
-        </div>
-        <div class="col-md-4">
-            <label for="inputCompany" class="form-label">통신사</label>
-            <select id="inputCompany" class="form-select">
-                <option selected>통신사</option>
-                <option value="kt">KT</option>
-                <option value="skt">SKT</option>
-                <option value="lg">LG U+</option>
-
-            </select>
-        </div>
-        <div class="col-md-5">
-            <label for="inputPhoneNumber" class="form-label">PhoneNumber</label>
-            <input type="text" class="form-control" id="inputPhoneNumber" placeholder="전화번호를 입력해주세요">
-        </div>
-        <div class="col-md-3">
-            <label for="inputGender" class="form-label">Gender</label>
-            <select id="inputGender" class="form-select">
-                <option selected>Choose</option>
-                <option value="male">남자</option>
-                <option value="female">여자</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <label for="inputZip" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputZip" placeholder="주소를 입력해주세요.">
-        </div>
-        <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    가입에 동의합니다.
-                </label>
-            </div>
-        </div>
-        <div class="col-12">
-            <button type="button" class="btn btn-primary" id="signupButton">
-                가입하기
-            </button>
-        </div>
-    </form>
-</div>
+</html>
